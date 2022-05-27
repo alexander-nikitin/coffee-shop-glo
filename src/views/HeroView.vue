@@ -59,11 +59,10 @@
 </template>
 
 <script>
-import NavBarComponent from '@/components/NavBarComponent.vue';
-import CardComponent from '@/components/CardComponent.vue';
+  import NavBarComponent from '@/components/NavBarComponent.vue';
+  import CardComponent from '@/components/CardComponent.vue';
 
-export default {
-  components: {NavBarComponent, CardComponent}
-}
-
+  export default {
+    components: {NavBarComponent, CardComponent}
+  }
 </script>
