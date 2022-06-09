@@ -5,10 +5,10 @@
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
             <link-component
-                :link-to="links.header.link"
+                :link-to="links.footer.link"
                 classItem="footer__item"
             >
-              <img :src="require(`@/assets/logo/${links.header.icon}`)" :alt="links.header.icon">
+              <img :src="require(`@/assets/logo/${links.footer.icon}`)" :alt="links.footer.icon">
             </link-component>
             <link-component
                 v-for="link in links.other"
@@ -30,32 +30,9 @@ import LinkComponent from '@/components/LinkComponent.vue';
 
 export default {
   components: {LinkComponent},
-  data() {
-    return {
-      links: {
-        header: {
-          id: 0,
-          icon: 'Logo_black.svg',
-          link: '/'
-        },
-        other: [
-          {
-            id: 1,
-            text: 'Our coffee',
-            link: '/our-coffee'
-          },
-          {
-            id: 2,
-            text: 'For your pleasure',
-            link: '/goods'
-          },
-          {
-            id: 3,
-            text: 'Contact us',
-            link: '/contacts'
-          }
-        ]
-      }
+  computed: {
+    links() {
+      return this.$store.getters['getFooterLinks']
     }
   }
 }

@@ -37,7 +37,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-component
-                v-for="good in goods"
+                v-for="good in goods.goods"
                 :key="good.id"
                 classItem="shop__item"
                 :name="good.name"
@@ -61,53 +61,14 @@
 
   export default {
     components: {NavBarComponent, CardComponent, PageTitleComponent},
+    computed: {
+      goods() {
+        return this.$store.getters['getGoods']
+      }
+    },
     data () {
       return {
         pageTitle: 'For your pleasure',
-        goods: [
-          {
-            id: uuidv4(),
-            image: 'good-1.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73'
-          },
-          {
-            id: uuidv4(),
-            image: 'good-1.jpg',
-            name: 'Presto Coffee Beans 1kg',
-            country: 'Brazil',
-            price: '15.99'
-          },
-          {
-            id: uuidv4(),
-            image: 'good-1.jpg',
-            name: 'AROMISTICO Coffee 1kg',
-            country: 'Brazil',
-            price: '6.99'
-          },
-          {
-            id: uuidv4(),
-            image: 'good-1.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73'
-          },
-          {
-            id: uuidv4(),
-            image: 'good-1.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73'
-          },
-          {
-            id: uuidv4(),
-            image: 'good-1.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73'
-          }
-        ]
       }
     }
   }

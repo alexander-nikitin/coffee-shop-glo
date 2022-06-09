@@ -55,7 +55,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-component
-                  v-for="coffeeItem in coffee"
+                  v-for="coffeeItem in coffee.coffee"
                   :key="coffeeItem.id"
                   classItem="shop__item"
                   :name="coffeeItem.name"
@@ -79,53 +79,14 @@
 
   export default {
     components: {NavBarComponent, CardComponent, PageTitleComponent},
+    computed: {
+      coffee() {
+        return this.$store.getters['getCoffee']
+      }
+    },
     data () {
       return {
         pageTitle: 'Our Coffee',
-        coffee: [
-          {
-            id: uuidv4(),
-            image: 'coffee-3.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73$'
-          },
-          {
-            id: uuidv4(),
-            image: 'coffee-3.jpg',
-            name: 'Presto Coffee Beans 1kg',
-            country: 'Brazil',
-            price: '15.99$'
-          },
-          {
-            id: uuidv4(),
-            image: 'coffee-3.jpg',
-            name: 'AROMISTICO Coffee 1kg',
-            country: 'Brazil',
-            price: '6.99$'
-          },
-          {
-            id: uuidv4(),
-            image: 'coffee-3.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73$'
-          },
-          {
-            id: uuidv4(),
-            image: 'coffee-3.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73$'
-          },
-          {
-            id: uuidv4(),
-            image: 'coffee-3.jpg',
-            name: 'Solimo Coffee Beans 2kg',
-            country: 'Brazil',
-            price: '10.73$'
-          }
-        ]
       }
     }
   }
